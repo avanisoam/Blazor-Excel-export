@@ -5,6 +5,15 @@ namespace BlazorExcelExport.XLS;
 
 public class Excel
 {
+    public async Task GenerateSKUAsync(IJSRuntime js,
+                                                   SKU[] data,
+                                                   string filename = "export.xlsx")
+    {
+        var sku = new SkuXLS();
+        var XLSStream = sku.Edition(data);
+
+        await js.InvokeVoidAsync("BlazorDownloadFile", filename, XLSStream);
+    }
     public async Task GenerateWeatherForecastAsync(IJSRuntime js, 
                                                    WeatherForecast[] data, 
                                                    string filename = "export.xlsx")

@@ -1,0 +1,50 @@
+﻿[
+  {
+    "id": 1,
+    "itemName": "string",
+    "attribute1": "string",
+    "attribute2": "string",
+    "attribute3": "string",
+    "generateSku": "str/str/str/str"
+  },
+  {
+    "id": 2,
+    "itemName": "Cloth",
+    "attribute1": "India",
+    "attribute2": "Black",
+    "attribute3": "Cotton",
+    "generateSku": "Clo/Ind/Bla/Cot"
+  },
+  {
+    "id": 3,
+    "itemName": "cvc",
+    "attribute1": "hjjh",
+    "attribute2": "mnm",
+    "attribute3": "kjk",
+    "generateSku": "cvc/hjj/mnm/kjk"
+  },
+  {
+    "id": 4,
+    "itemName": "abc",
+    "attribute1": "abs",
+    "attribute2": "abf",
+    "attribute3": "agd",
+    "generateSku": "abc/abs/abf/agd"
+  },
+  {
+    "id": 5,
+    "itemName": "Shoes",
+    "attribute1": "US-33",
+    "attribute2": "Leather",
+    "attribute3": "Black",
+    "generateSku": "Sho/US-/Lea/Bla"
+  },
+  {
+    "id": 6,
+    "itemName": "Abcd",
+    "attribute1": "xyzt",
+    "attribute2": "bbbbb",
+    "attribute3": "yu567",
+    "generateSku": "Abc/xyz/bbb/yu5"
+  }
+]

@@ -1,0 +1,59 @@
+﻿@page "/test"
+@using BlazorExcelExport.XLS
+@inject HttpClient Http
+@inject IJSRuntime js
+
+<h3>Test</h3>
+
+<h1>Sku Solution</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (skus == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Item Name</th>
+                <th>Attribute1</th>
+                <th>Attribute2</th>
+                <th>Attribute3</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sku in skus)
+            {
+                <tr>
+                    <td>@sku.Id.ToString()</td>
+                    <td>@sku.ItemName</td>
+                    <td>@sku.Attribute1</td>
+                    <td>@sku.Attribute2</td>
+                    <td>@sku.Attribute3</td>
+                </tr>
+            }
+        </tbody>
+    </table>     
+
+    <br />        
+    <button type="button" class="btn btn-success mb-2" @onclick="@ClickExportXLS">Create XLSX</button>
+}	
+
+@code {
+    private SKU[]? skus;
+
+    protected override async Task OnInitializedAsync()
+    {
+        skus = await Http.GetFromJsonAsync<SKU[]>("sample-data/sku.json");
+    }
+
+    private async void ClickExportXLS()
+    {
+        var xls = new Excel();
+        await xls.GenerateSKUAsync(js, skus, "export.xlsx");
+    }
+}
